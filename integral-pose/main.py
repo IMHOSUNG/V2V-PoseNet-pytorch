@@ -56,7 +56,7 @@ resume_after_epoch = args.resume
 
 save_checkpoint = True
 checkpoint_per_epochs = 1
-checkpoint_dir = r'./checkpoint'
+checkpoint_dir = '../checkpoint'
 
 start_epoch = 0
 epochs_num = 15
@@ -68,8 +68,8 @@ batch_size = 12
 ## Data, transform, dataset and loader
 # Data
 print('==> Preparing data ..')
-data_dir = r'./datasets/cvpr15_MSRAHandGestureDB'
-center_dir = r'./datasets/msra_center'
+data_dir = '../datasets/cvpr15_MSRAHandGestureDB'
+center_dir = '../datasets/msra_center'
 keypoints_num = 21
 test_subject_id = 3
 cubic_size = 200
