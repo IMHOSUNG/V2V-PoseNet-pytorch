@@ -54,7 +54,7 @@ resume_after_epoch = args.resume
 
 save_checkpoint = True
 checkpoint_per_epochs = 1
-checkpoint_dir = r'V2V-PoseNet-pytorch/checkpoint'
+checkpoint_dir = r'content/V2V-PoseNet-pytorch/checkpoint'
 
 start_epoch = 0
 epochs_num = 15
@@ -66,8 +66,8 @@ batch_size = 12
 ## Data, transform, dataset and loader
 # Data
 print('==> Preparing data ..')
-data_dir = r'V2V-PoseNet-pytorch/dataset/cvpr15_MSRAHandGestureDB'
-center_dir = r'V2V-PoseNet-pytorch/center'
+data_dir = r'content/V2V-PoseNet-pytorch/datasets/cvpr15_MSRAHandGestureDB'
+center_dir = r'content/V2V-PoseNet-pytorch/center'
 keypoints_num = 21
 test_subject_id = 3
 cubic_size = 200
