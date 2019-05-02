@@ -124,15 +124,15 @@ def transform_val(sample):
 
 # Dataset and loader
 train_set = MARAHandDataset(data_dir, center_dir, 'train', test_subject_id, transform_train)
-train_loader = torch.utils.data.DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=6)
+train_loader = torch.utils.data.DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=0)
 # train_num = 24
 # train_loader = torch.utils.data.DataLoader(train_set, batch_size=batch_size, shuffle=False, num_workers=6,sampler=ChunkSampler(train_num, 0))
 
 # No separate validation dataset, just use test dataset instead
 val_set = MARAHandDataset(data_dir, center_dir, 'test', test_subject_id, transform_val)
-val_loader = torch.utils.data.DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=6)
+val_loader = torch.utils.data.DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=0)
 # val_num = 24
-# val_loader = torch.utils.data.DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=6, sampler=ChunkSampler(val_num))
+# val_loader = torch.utils.data.DataLoader(val_set, batch_size=batch_size, shuffle=False, num_workers=0, sampler=ChunkSampler(val_num))
 
 
 #######################################################################################
@@ -255,7 +255,7 @@ def save_keypoints(filename, keypoints):
 
 
 test_set = MARAHandDataset(data_dir, center_dir, 'test', test_subject_id, transform_test)
-test_loader = torch.utils.data.DataLoader(test_set, batch_size=batch_size, shuffle=False, num_workers=6)
+test_loader = torch.utils.data.DataLoader(test_set, batch_size=batch_size, shuffle=False, num_workers=0)
 test_res_collector = BatchResultCollector(len(test_set), transform_output)
 
 test_epoch(net, test_loader, test_res_collector, device, dtype)
@@ -265,7 +265,7 @@ save_keypoints('./test_res.txt', keypoints_test)
 
 print('Fit on train dataset ..')
 fit_set = MARAHandDataset(data_dir, center_dir, 'train', test_subject_id, transform_test)
-fit_loader = torch.utils.data.DataLoader(fit_set, batch_size=batch_size, shuffle=False, num_workers=6)
+fit_loader = torch.utils.data.DataLoader(fit_set, batch_size=batch_size, shuffle=False, num_workers=0)
 fit_res_collector = BatchResultCollector(len(fit_set), transform_output)
 
 test_epoch(net, fit_loader, fit_res_collector, device, dtype)
