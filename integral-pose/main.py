@@ -15,7 +15,7 @@ from loss import MixedLoss
 from v2v_util import V2VVoxelization
 from msra_hand import MARAHandDataset
 
-
+torch.backends.cudnn.enabled = False
 #######################################################################################
 # Note,
 # Run in project root direcotry(ROOT_DIR) with:
