@@ -6,7 +6,7 @@ import torch.backends.cudnn as cudnn
 import argparse
 import os
 import sys
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+temp = sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from solver import train_epoch, val_epoch, test_epoch
 from sampler import ChunkSampler
@@ -68,8 +68,9 @@ batch_size = 12
 ## Data, transform, dataset and loader
 # Data
 print('==> Preparing data ..')
-data_dir = '../datasets/cvpr15_MSRAHandGestureDB'
-center_dir = '../datasets/msra_center'
+print(temp)
+data_dir = str(temp)+'/datasets/cvpr15_MSRAHandGestureDB'
+center_dir = str(temp)+'/datasets/msra_center'
 keypoints_num = 21
 test_subject_id = 3
 cubic_size = 200
