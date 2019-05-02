@@ -5,6 +5,8 @@ import torch.optim as optim
 import torch.backends.cudnn as cudnn
 import argparse
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from solver import train_epoch, val_epoch, test_epoch
 from sampler import ChunkSampler
@@ -54,7 +56,7 @@ resume_after_epoch = args.resume
 
 save_checkpoint = True
 checkpoint_per_epochs = 1
-checkpoint_dir = r'content/V2V-PoseNet-pytorch/checkpoint'
+checkpoint_dir = r'./checkpoint'
 
 start_epoch = 0
 epochs_num = 15
@@ -66,8 +68,8 @@ batch_size = 12
 ## Data, transform, dataset and loader
 # Data
 print('==> Preparing data ..')
-data_dir = r'../datasets/cvpr15_MSRAHandGestureDB'
-center_dir = r'content/V2V-PoseNet-pytorch/center'
+data_dir = r'./datasets/cvpr15_MSRAHandGestureDB'
+center_dir = r'./datasets/msra_center'
 keypoints_num = 21
 test_subject_id = 3
 cubic_size = 200
