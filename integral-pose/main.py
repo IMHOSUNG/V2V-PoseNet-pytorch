@@ -55,7 +55,7 @@ resume_after_epoch = args.resume
 
 save_checkpoint = True
 checkpoint_per_epochs = 1
-checkpoint_dir = '../checkpoint'
+checkpoint_dir = '/content/V2V-PoseNet-pytorch/checkpoint'
 
 start_epoch = 0
 epochs_num = 15
