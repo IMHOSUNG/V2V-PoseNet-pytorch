@@ -15,7 +15,6 @@ from loss import MixedLoss
 from v2v_util import V2VVoxelization
 from msra_hand import MARAHandDataset
 
-torch.backends.cudnn.enabled = False
 #######################################################################################
 # Note,
 # Run in project root direcotry(ROOT_DIR) with:
@@ -143,7 +142,7 @@ net = Model(in_channels=1, out_channels=keypoints_num, output_res=output_res)
 
 net = net.to(device, dtype)
 if device == torch.device('cuda'):
-    torch.backends.cudnn.enabled = True
+    torch.backends.cudnn.enabled = False
     cudnn.benchmark = True
     print('cudnn.enabled: ', torch.backends.cudnn.enabled)
 
